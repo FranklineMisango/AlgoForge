@@ -1,0 +1,14 @@
+{
+    "algorithm-language": "Python",
+    "parameters": {
+        "bb-period": 20,
+        "bb-std": 2.0,
+        "rsi-period": 14,
+        "max-position-size": 0.08,
+        "stop-loss-pct": 0.05,
+        "take-profit-pct": 0.10,
+        "volatility-threshold": 0.02
+    },
+    "description": "Bollinger Bands Mean Reversion Strategy - Uses Bollinger Bands to identify overbought/oversold conditions combined with RSI confirmation. Includes comprehensive risk management with stop-loss, take-profit, and volatility-based position sizing.",
+    "local-id": 902779792
+}
