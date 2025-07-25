@@ -1,0 +1,15 @@
+{
+    "algorithm-language": "CSharp",
+    "parameters": {
+        "top-sectors-count": 3,
+        "rebalance-period": 21,
+        "momentum-period": 126,
+        "relative-strength-period": 63,
+        "volatility-period": 21,
+        "max-sector-weight": 0.4,
+        "min-cash-weight": 0.1,
+        "volatility-threshold": 0.25
+    },
+    "description": "Tactical Asset Allocation Sector Rotation Strategy - Dynamically rotates between sector ETFs based on momentum, relative strength, and technical indicators. Includes market regime detection for adaptive positioning and comprehensive risk management through volatility monitoring.",
+    "local-id": 672566058
+}
