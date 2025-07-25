@@ -1,0 +1,15 @@
+{
+    "algorithm-language": "CSharp",
+    "parameters": {
+        "target-spread-bps": 5,
+        "max-inventory-pct": 0.02,
+        "quote-refresh-seconds": 30,
+        "max-order-size-pct": 0.005,
+        "min-spread-bps": 2,
+        "max-spread-bps": 20,
+        "volatility-lookback": 20,
+        "profit-target-bps": 3
+    },
+    "description": "Market Making Strategy - Provides liquidity by placing simultaneous buy and sell limit orders around current market price. Features dynamic spread calculation based on volatility, inventory management, market microstructure analysis, and comprehensive risk controls for professional market making operations.",
+    "local-id": 672566059
+}
