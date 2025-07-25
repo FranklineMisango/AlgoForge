@@ -1,0 +1,15 @@
+{
+    "algorithm-language": "CSharp",
+    "parameters": {
+        "lookback-period": 252,
+        "correlation-period": 60,
+        "entry-threshold": 2.0,
+        "exit-threshold": 0.5,
+        "stop-loss-threshold": 3.0,
+        "min-correlation": 0.8,
+        "max-position-size": 0.05,
+        "rebalance-period": 5
+    },
+    "description": "Statistical Arbitrage Pairs Trading Strategy - Identifies highly correlated asset pairs and trades mean reversion of their price spreads using z-score analysis. Includes comprehensive risk management and dynamic pair selection based on correlation strength.",
+    "local-id": 672566057
+}
