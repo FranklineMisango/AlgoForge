@@ -1,0 +1,13 @@
+{
+    "algorithm-language": "CSharp",
+    "parameters": {
+        "rsi-period": 14,
+        "fast-ma-period": 10,
+        "slow-ma-period": 30,
+        "max-position-size": 0.10,
+        "stop-loss-percentage": 0.05,
+        "take-profit-percentage": 0.15
+    },
+    "description": "Momentum Mean Reversion Strategy - Combines momentum signals from moving average crossovers with mean reversion signals from RSI. Includes volatility-based position sizing and comprehensive risk management with stop-loss and take-profit mechanisms.",
+    "local-id": 672566056
+}
