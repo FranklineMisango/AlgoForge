@@ -255,6 +255,13 @@ lean backtest
 # Tactical asset allocation rotating between sector ETFs
 ```
 
+*Market Making Strategy*:
+```bash
+cd Sample_Strategies/C#_Algorithms/MarketMaking
+lean backtest
+# Liquidity provision strategy that captures bid-ask spreads
+```
+
 ### Advanced LEAN Commands
 
 **Custom data integration**:
@@ -389,7 +396,8 @@ AlgoForge/
         ├── DiversifiedLeverage/    # Diversified leverage ETF strategy
         ├── MomentumMeanReversion/  # Combined momentum and mean reversion strategy
         ├── PairsTrading/           # Statistical arbitrage pairs trading strategy
-        └── SectorRotation/         # Tactical asset allocation sector rotation strategy
+        ├── SectorRotation/         # Tactical asset allocation sector rotation strategy
+        └── MarketMaking/           # Liquidity provision market making strategy
 ```
 
 ## Configuration
@@ -458,6 +466,7 @@ Each sample strategy includes a `config.json` file where you can modify:
 *Sector Rotation*: Momentum periods, sector allocation limits, market regime parameters
 *Bollinger Bands*: Band periods, standard deviations, volume confirmation settings
 *Crypto Momentum*: MACD parameters, momentum thresholds, trailing stop percentages
+*Market Making*: Spread targets, inventory limits, quote refresh intervals, volatility adjustments
 
 ### Environment Variables
 
