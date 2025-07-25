@@ -1,0 +1,16 @@
+{
+    "algorithm-language": "Python",
+    "parameters": {
+        "macd-fast": 12,
+        "macd-slow": 26,
+        "macd-signal": 9,
+        "rsi-period": 14,
+        "roc-period": 10,
+        "max-position-size": 0.15,
+        "momentum-threshold": 0.6,
+        "trailing-stop-pct": 0.08,
+        "max-crypto-exposure": 0.8
+    },
+    "description": "Cryptocurrency Momentum Strategy - Multi-indicator momentum trading system for cryptocurrencies using MACD, RSI, and Rate of Change. Features market regime detection, dynamic position sizing based on volatility, and comprehensive risk management with trailing stops.",
+    "local-id": 902779793
+}
