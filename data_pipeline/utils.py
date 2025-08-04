@@ -5,7 +5,11 @@ Utility functions for data pipeline
 import os
 import csv
 import zipfile
-import pandas as pd
+try:
+    import pandas as pd
+    PANDAS_AVAILABLE = True
+except ImportError:
+    PANDAS_AVAILABLE = False
 from datetime import datetime, timedelta
 import pytz
 from typing import List, Dict, Optional
@@ -77,6 +81,32 @@ def create_lean_crypto_csv(data: List[Dict], symbol: str, date: datetime, resolu
             float(bar['low']),
             float(bar['close']),
             float(bar['volume'])
+        ]
+        csv_content.append(row)
+    
+    return csv_content
+
+def create_lean_futures_csv(data: List[Dict], symbol: str, date: datetime, resolution: str, asset_type: str = 'futures') -> str:
+    """Create Lean format CSV content for Futures/Options data"""
+    csv_content = []
+    
+    for bar in data:
+        if resolution == 'daily':
+            # For daily data, use full date format YYYYMMDD HH:MM
+            time_str = bar['timestamp'].strftime("%Y%m%d %H:%M")
+        else:
+            # For intraday data, use milliseconds since midnight
+            time_str = milliseconds_since_midnight(bar['timestamp'])
+        
+        # Futures use actual prices (no conversion to deci-cents)
+        # Format: Time, Open, High, Low, Close, Volume
+        row = [
+            time_str,
+            float(bar['open']),
+            float(bar['high']),
+            float(bar['low']),
+            float(bar['close']),
+            int(bar['volume'])
         ]
         csv_content.append(row)
     
