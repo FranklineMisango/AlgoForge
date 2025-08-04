@@ -20,6 +20,9 @@ ALPACA_BASE_URL = 'https://paper-api.alpaca.markets'  # Use paper trading URL fo
 BINANCE_API_KEY = os.getenv('BINANCE_API_KEY', '')
 BINANCE_SECRET_KEY = os.getenv('BINANCE_SECRET_KEY', '')
 
+# NQ (NASDAQ-100) API Configuration
+NQ_API_KEY = os.getenv('ALPHA_VANTAGE_API_KEY', '')  # Alpha Vantage free tier
+
 # Data Configuration
 DATA_ROOT = os.path.join(os.path.dirname(__file__), '..', 'data')
 EQUITY_DATA_PATH = os.path.join(DATA_ROOT, 'equity', 'usa')
@@ -36,6 +39,15 @@ SUPPORTED_RESOLUTIONS = ['tick', 'second', 'minute', 'hour', 'daily']
 DEFAULT_EQUITY_SYMBOLS = ['AAPL', 'GOOGL', 'MSFT', 'TSLA', 'NVDA', 'AMZN', 'META', 'NFLX', 'SPY', 'QQQ']
 DEFAULT_CRYPTO_SYMBOLS = ['BTCUSDT', 'ETHUSDT', 'ADAUSDT', 'DOTUSDT', 'LINKUSDT', 'BNBUSDT', 'SOLUSDT', 'AVAXUSDT']
 
+# NQ (NASDAQ-100) related symbols
+NQ_SYMBOLS = [
+    'QQQ',    # NASDAQ-100 ETF (primary proxy for NQ futures)
+    'TQQQ',   # 3x Leveraged NASDAQ-100 ETF
+    'SQQQ',   # 3x Inverse NASDAQ-100 ETF
+    'QQQS',   # NASDAQ-100 Ex-Technology Sector Index ETF
+    'QQQM',   # NASDAQ-100 ETF (lower expense ratio)
+]
+
 # Lean format configuration
 LEAN_TIME_FORMAT = "%Y%m%d"
 LEAN_PRICE_MULTIPLIER = 10000  # Lean uses deci-cents for equity prices
@@ -44,6 +56,7 @@ LEAN_CRYPTO_PRICE_MULTIPLIER = 1  # Crypto uses actual prices
 # Rate limiting
 ALPACA_RATE_LIMIT = 200  # requests per minute
 BINANCE_RATE_LIMIT = 1200  # requests per minute
+NQ_RATE_LIMIT = 5  # Alpha Vantage free tier: 5 requests per minute
 
 # Timezone configuration
 LEAN_TIMEZONE_EQUITY = 'America/New_York'
