@@ -1,11 +1,14 @@
 # LEAN Data Pipeline
 
-This data pipeline downloads financial data from Alpaca (for US equities) and Binance (for cryptocurrencies) and converts it to LEAN format for backtesting.
+This data pipeline downloads financial data from multiple sources and converts it to LEAN format for backtesting.
 
 ## Features
 
 - **Alpaca Integration**: Download US equity data (OHLCV) from Alpaca Markets
 - **Binance Integration**: Download cryptocurrency data (OHLCV) from Binance
+- **Polygon.io Options**: Download US options data from Polygon.io
+- **Polygon.io Futures**: Download futures data (ES, NQ, YM, RTY, CL, GC, etc.)
+- **Databento Futures**: Download high-quality futures data from Databento (ES, NQ, CL, GC, etc.)
 - **Lean Format**: Automatically converts data to LEAN's CSV format with proper compression
 - **Multiple Resolutions**: Supports minute, hour, and daily data
 - **Rate Limiting**: Built-in rate limiting to respect API limits
@@ -29,6 +32,14 @@ This data pipeline downloads financial data from Alpaca (for US equities) and Bi
    # Binance API keys (optional for public data)
    export BINANCE_API_KEY="your_binance_api_key"
    export BINANCE_SECRET_KEY="your_binance_secret_key"
+   
+   # Polygon.io API key (required for options data)
+   export POLYGON_API_KEY="your_polygon_api_key"
+   
+   # Databento API keys (required for high-quality futures data)
+   export DATA_BENTO_API_KEY="your_databento_api_key"
+   export DATA_BENTO_USER_ID="your_databento_user_id"
+   export DATA_BENTO_PROD_NAME="prod-001"
    ```
 
 3. **Activate Virtual Environment**:
@@ -50,6 +61,19 @@ This data pipeline downloads financial data from Alpaca (for US equities) and Bi
 3. Generate API keys (optional - public data works without keys)
 4. For public data, you can leave the keys empty
 
+### Polygon.io (for Options Data)
+1. Go to [Polygon.io](https://polygon.io/)
+2. Create a free account (includes 5 API calls per minute)
+3. Get your API key from the dashboard
+4. Free tier provides end-of-day options data
+
+### Databento (for High-Quality Futures Data)
+1. Go to [Databento](https://databento.com/)
+2. Create an account (offers free tier with limited data)
+3. Get your API key, User ID, and Product Name from the dashboard
+4. Provides high-quality, institutional-grade futures data
+5. Supports real-time and historical data for major exchanges (CME, CBOT, NYMEX, COMEX, ICE)
+
 ## Usage
 
 ### Basic Usage
@@ -64,8 +88,17 @@ python main.py --source alpaca --resolution daily
 # Download minute crypto data from Binance
 python main.py --source binance --resolution minute
 
-# Download from both sources
-python main.py --source both --resolution daily
+# Download options data from Polygon.io
+python main.py --source options --option-symbols SPY QQQ AAPL
+
+# Download futures data from Polygon.io
+python main.py --source futures --futures-symbols ES NQ --resolution minute
+
+# Download futures data from Databento (high-quality)
+python main.py --source databento --databento-symbols ES.FUT NQ.FUT CL.FUT --resolution daily
+
+# Download from all sources
+python main.py --source all --resolution daily
 ```
 
 ### Advanced Usage
