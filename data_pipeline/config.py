@@ -22,6 +22,8 @@ POLYGON_API_KEY = os.getenv('POLYGON_API_KEY', '')
 DATA_BENTO_API_KEY = os.getenv('DATA_BENTO_API_KEY', '')
 DATA_BENTO_USER_ID = os.getenv('DATA_BENTO_USER_ID', '')
 DATA_BENTO_PROD_NAME = os.getenv('DATA_BENTO_PROD_NAME', 'prod-001')
+# NQ (NASDAQ-100) API Configuration
+NQ_API_KEY = os.getenv('ALPHA_VANTAGE_API_KEY', '')  # Alpha Vantage free tier
 
 # Data Configuration
 DATA_ROOT = os.path.join(os.path.dirname(__file__), '..', 'data')
@@ -43,6 +45,15 @@ DEFAULT_OPTION_SYMBOLS = ['SPY', 'QQQ', 'AAPL', 'TSLA', 'MSFT']  # Popular optio
 DEFAULT_FUTURES_SYMBOLS = ['ES', 'CL', 'ZS']  # Working futures symbols (Polygon.io free tier)
 DEFAULT_DATABENTO_FUTURES_SYMBOLS = ['ES.FUT', 'NQ.FUT', 'YM.FUT', 'RTY.FUT', 'CL.FUT', 'GC.FUT', 'SI.FUT', 'ZB.FUT', 'ZN.FUT', 'NG.FUT']  # Databento futures symbols
 
+# NQ (NASDAQ-100) related symbols
+NQ_SYMBOLS = [
+    'QQQ',    # NASDAQ-100 ETF (primary proxy for NQ futures)
+    'TQQQ',   # 3x Leveraged NASDAQ-100 ETF
+    'SQQQ',   # 3x Inverse NASDAQ-100 ETF
+    'QQQS',   # NASDAQ-100 Ex-Technology Sector Index ETF
+    'QQQM',   # NASDAQ-100 ETF (lower expense ratio)
+]
+
 # Lean format configuration
 LEAN_TIME_FORMAT = "%Y%m%d"
 LEAN_PRICE_MULTIPLIER = 10000  # Lean uses deci-cents for equity prices
@@ -51,6 +62,7 @@ LEAN_CRYPTO_PRICE_MULTIPLIER = 1  # Crypto uses actual prices
 # Rate limiting
 ALPACA_RATE_LIMIT = 200  # requests per minute
 BINANCE_RATE_LIMIT = 1200  # requests per minute
+NQ_RATE_LIMIT = 5  # Alpha Vantage free tier: 5 requests per minute
 
 # Timezone configuration
 LEAN_TIMEZONE_EQUITY = 'America/New_York'
