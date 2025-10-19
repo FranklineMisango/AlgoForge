@@ -239,21 +239,3 @@ class PolygonFuturesDownloader:
                 continue
         
         self.logger.info("Futures download completed")
-
-
-def main():
-    """Main function for testing"""
-    downloader = PolygonFuturesDownloader()
-    
-    # Test with popular futures
-    start_date = datetime.now() - timedelta(days=7)
-    end_date = datetime.now()
-    
-    # Test symbols
-    test_symbols = ['ES', 'NQ']
-    
-    downloader.download_symbols(test_symbols, start_date, end_date, 'daily')
-
-
-if __name__ == "__main__":
-    main()

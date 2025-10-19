@@ -390,28 +390,3 @@ class DatabentoFuturesDownloader:
         except Exception as e:
             self.logger.error(f"Failed to connect to Databento API: {e}")
             return False
-
-
-if __name__ == "__main__":
-    # Test the downloader
-    downloader = DatabentoFuturesDownloader()
-    
-    # Test connection
-    if downloader.test_connection():
-        print("✓ Connection to Databento successful")
-        
-        # Test downloading a single symbol
-        test_symbol = "ES.FUT"
-        start_date = datetime.now() - timedelta(days=7)
-        end_date = datetime.now()
-        
-        print(f"Testing download of {test_symbol}...")
-        data = downloader.get_futures_data(test_symbol, start_date, end_date, resolution='daily')
-        
-        if not data.empty:
-            print(f"✓ Successfully downloaded {len(data)} records")
-            print(data.head())
-        else:
-            print("✗ No data returned")
-    else:
-        print("✗ Failed to connect to Databento")
